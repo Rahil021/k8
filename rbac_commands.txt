@@ -1,5 +1,11 @@
 openssl genpkey -algorithm RSA -out emp.key
 
+<optional>
+
+openssl genpkey -algorithm RSA -out emp.key -aes-256-cbc
+
+</optional>
+
 openssl req -new -key emp.key -out emp.csr -subj "/C=US/ST=State/L=City/O=Organization/OU=dev/CN=emp"
 
 openssl x509 -req -in emp.csr -signkey emp.key -out emp.crt
