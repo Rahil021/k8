@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: fco-nginx-pod
+spec:
+  containers:
+    - name: fco-nginx-container
+      image: nginx
+      env:
+        - name: SERVER_URL_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: fco-config
+              key: SERVER_URL
