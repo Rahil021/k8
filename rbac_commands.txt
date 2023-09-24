@@ -12,6 +12,10 @@ openssl req -new -key emp.key -out emp.csr -subj "/CN=emp/O=dev"  CN=common name
 
 openssl x509 -req -in emp.csr -signkey emp.key -out emp.crt
 
+-----------------
+openssl x509 -req -CA ~/.minikube/ca.crt -CAKey ~/.minikube/ca.key -days 730 -in emp.csr -out emp.crt
+-----------------
+
 alias k=kubectl
 
 k config use-context minikube
