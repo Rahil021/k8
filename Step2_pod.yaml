@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Pod
 metadata: 
-  name: fco-nginx-pod
+  name: fresco-nginx-pod
 spec:
   containers:
-    - name: fco-nginx-container
+    - name: fresco-nginx-container
       image: nginx
       env:
         - name: SERVER_URL_ENV
           valueFrom:
             configMapKeyRef:
-              name: fco-config
+              name: fresco-config
               key: SERVER_URL
