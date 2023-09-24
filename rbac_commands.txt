@@ -8,6 +8,8 @@ openssl genpkey -algorithm RSA -out emp.key -aes-256-cbc
 
 openssl req -new -key emp.key -out emp.csr -subj "/C=US/ST=State/L=City/O=Organization/OU=dev/CN=emp"
 
+openssl req -new -key emp.key -out emp.csr -subj "/CN=emp/O=dev"  CN=common name , O=grp
+
 openssl x509 -req -in emp.csr -signkey emp.key -out emp.crt
 
 alias k=kubectl
