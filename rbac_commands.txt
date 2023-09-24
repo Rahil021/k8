@@ -1,0 +1,15 @@
+openssl genpkey -algorithm RSA -out emp.key
+
+openssl req -new -key emp.key -out emp.csr -subj "/C=US/ST=State/L=City/O=Organization/OU=dev/CN=emp"
+
+openssl x509 -req -in emp.csr -signkey emp.key -out emp.crt
+
+alias k=kubectl
+
+k config use-context minikube
+
+k config set-context dev-ctx --cluster=minikube --namespace=dev --user=emp
+
+k config use-context dev-ctx
+
+k config set-context dev-ctx --user=emp --client-certificate=emp.crt --client-key=emp.key
