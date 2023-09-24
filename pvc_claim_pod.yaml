@@ -18,4 +18,4 @@ spec:
   volumes:
     - name: pvc-claim
       persistentVolumeClaim:
-        pv-name: fresco-pvc
+        claimName: fresco-pvc
