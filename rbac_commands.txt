@@ -21,3 +21,5 @@ k config set-context dev-ctx --cluster=minikube --namespace=dev --user=emp
 k config use-context dev-ctx
 
 k config set-context dev-ctx --user=emp --client-certificate=emp.crt --client-key=emp.key
+
+Reference: https://github.com/pelthepu/Kubernetes/tree/master/resources/rbac
