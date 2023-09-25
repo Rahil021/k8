@@ -1,3 +1,5 @@
+openssl rand -out .rnd 2048
+
 # generate .key
 openssl genrsa -out emp.key 2048
 
