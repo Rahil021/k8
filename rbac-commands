@@ -1,0 +1,55 @@
+# generate .key
+openssl genrsa -out emp.key 2048
+
+# generate .csr
+openssl req -new \
+    -key emp.key \
+    -out emp.csr \
+    -subj "/CN=emp/O=dev"
+
+ls ~/.minikube/
+# Check that the files ca.crt and ca.key exist in the location.
+
+# generate .crt
+openssl x509 -req \
+    -in emp.csr \
+    -CA ~/.minikube/ca.crt \
+    -CAkey ~/.minikube/ca.key \
+    -CAcreateserial \
+    -out emp.crt \
+    -days 500
+
+kubectl config set-credentials emp \
+    --client-certificate=emp.crt \
+    --client-key=emp.key
+
+kubectl config set-context dev-ctx \
+    --cluster=minikube \
+    --namespace=dev \
+    --user=emp
+
+---------------------------------------------------------------
+
+kubectl config view
+
+kubectl config use-context dev-ctx
+
+kubectl config current-context
+
+kubectl get pods # Forbidden
+
+# Role & RoleBinding
+
+kubectl config use-context minikube
+
+kubectl apply -f role.yaml
+
+kubectl apply -f role-binding.yaml
+
+kubectl get roles
+
+kubectl get rolebindings
+
+kubectl config use-context dev-ctx
+
+kubectl get pods
