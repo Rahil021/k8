@@ -7,7 +7,7 @@ spec:
     storage: 100Mi
   accessModes:
     - ReadWriteOnce
-  PersistentVolumeReclaimPolicy: Retain
+  persistentVolumeReclaimPolicy: Retain
   storageClassName: manual
   hostPath:
     path: /tmp/fresco
