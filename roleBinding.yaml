@@ -1,31 +1,31 @@
-apiVersion: rbac.authorization.k8s.io/v1
+# apiVersion: rbac.authorization.k8s.io/v1
+# kind: RoleBinding
+# metadata:
+#   namespace: dev
+#   name: emp-bind
+# subjects:
+#   - kind: User
+#     name: emp
+#     apiGroup: rbac.authorization.k8s.io
+# roleRef:
+#   kind: Role
+#   name: emp-role
+#   apiGroup: rbac.authorization.k8s.io
+
+# ------------------------------------------------------
+
 kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  namespace: dev
   name: emp-bind
+  namespace: dev
 subjects:
-  - kind: User
-    name: emp
-    apiGroup: rbac.authorization.k8s.io
+- kind: User
+  name: emp
+  apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: Role
   name: emp-role
   apiGroup: rbac.authorization.k8s.io
 
-------------------------------------------------------
-
-kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  name: read-pods
-  namespace: default
-subjects:
-- kind: User
-  name: user1
-  apiGroup: rbac.authorization.k8s.io
-roleRef:
-  kind: Role
-  name: pod-reader
-  apiGroup: rbac.authorization.k8s.io
-
-  Ref: https://github.com/HoussemDellai/rbac-kubernetes-minikube/blob/master/role-binding.yaml
+#   Ref: https://github.com/HoussemDellai/rbac-kubernetes-minikube/blob/master/role-binding.yaml
