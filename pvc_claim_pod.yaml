@@ -15,7 +15,12 @@ spec:
       volumeMounts: 
         - name: pvc-claim
           mountPath:  "usr/share/nginx/html"
+        - name: secret-vol
+          mountPath:  "etc/test"
   volumes:
     - name: pvc-claim
       persistentVolumeClaim:
         claimName: fresco-pvc
+    - name: secret-vol
+      secret:
+        secretName: fresco-secret        
