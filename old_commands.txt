@@ -1,4 +1,4 @@
-kubectl create configmap --from-literal=SERVER_URL=https://fresco.me
+kubectl create configmap fresco-config --from-literal=SERVER_URL=https://www.fresco.me
 
 kubectl create secret generic --from-literal=user=admin --from-literal=pass=pass
 -------------------------------------------------------------------
