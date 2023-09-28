@@ -16,6 +16,6 @@ metadata:
   namespace: dev
   name: emp-role
 rules:
-- apiGroups: [""] # the core API group
+- apiGroups: ["","apps"] # the core API group
   resources: ["pods","deployments"]
   verbs: ["get", "list"]
