@@ -1,6 +1,8 @@
 kubectl create configmap fresco-config --from-literal=SERVER_URL=https://www.fresco.me
 
 kubectl create secret generic --from-literal=user=admin --from-literal=pass=pass
+
+ kubectl create secret generic fresco-secret --from-file=user.txt --from-file=pass.txt
 -------------------------------------------------------------------
 openssl genpkey -algorithm RSA -out emp.key
 
